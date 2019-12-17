@@ -8,6 +8,10 @@ import { LoginComponent } from './login/login.component';
 
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import interceptors from './interceptor'
+
+interceptors.init();
 
 @NgModule({
   declarations: [
@@ -21,8 +25,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     CustomMaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

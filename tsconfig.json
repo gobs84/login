@@ -1,13 +1,15 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./login",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
