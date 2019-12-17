@@ -21,7 +21,7 @@ export class LoginService {
         }
       }
       axios.post(this._configuration.backEndUrl + this._configuration.postLogin,"",config)
-        .then(response => { resolve(response.data) })
+        .then(response => { resolve(response.status) })
         .catch(error => { 
           console.log(error); 
           reject('No se pudo enviar tu solicitud, error de conexion');

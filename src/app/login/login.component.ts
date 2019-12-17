@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     this._loginService.login(this.username,this.password).then(response=>{
-      if(response){
+      if(response==200){
         this.snackbar="You are logged"
       }else{
         this.snackbar="You are not logged"
