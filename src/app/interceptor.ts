@@ -14,7 +14,6 @@ import axios from 'axios'
             var split = response.headers.authorization.split(" ")
             if(split[0]=="Bearer"){
               localStorage.setItem("token",split[1]);
-              console.log("Guardando");
             }
             return response;
           }, (error) => {

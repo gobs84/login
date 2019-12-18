@@ -24,7 +24,7 @@ export class LoginService {
         .then(response => { resolve(response.status) })
         .catch(error => { 
           console.log(error); 
-          reject('No se pudo enviar tu solicitud, error de conexion');
+          reject(error.response.status);
         })
     })
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {LoginService} from '../loginService/login.service'
+import config from '../../assets/config.json'
 
 
 @Component({
@@ -10,27 +11,36 @@ import {LoginService} from '../loginService/login.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar, public _loginService: LoginService) { }
+  private _configuration: { backEndUrl: any; postLogin: any; productsUrl:any}
+  constructor(private _snackBar: MatSnackBar, public _loginService: LoginService) { 
+    this._configuration = config;
+  }
 
   ngOnInit() {
   }
 
   username: string;
   password: string;
-  snackbar: string;
+  snackbarMessage: string;
+  
 
   login(){
     this._loginService.login(this.username,this.password).then(response=>{
       if(response==200){
-        this.snackbar="You are logged"
-      }else{
-        this.snackbar="You are not logged"
+        this.snackbarMessage="You are logged";
+        window.location.href = this._configuration.productsUrl;
       }
-      this._snackBar.open(this.snackbar, "", {
+      this._snackBar.open(this.snackbarMessage, "", {
         duration: 3000,
       }); 
     }).catch(response=>{
-      this._snackBar.open("Something went wrong", "ERROR", {
+      console.log(response)
+      if(response==401){
+        this.snackbarMessage="Unauthorized Loggin"
+      }else{
+        this.snackbarMessage="Ups something went wrong"
+      }
+      this._snackBar.open(this.snackbarMessage, "ERROR", {
         duration: 3000,
       }); 
     });
