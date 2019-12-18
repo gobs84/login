@@ -14,17 +14,17 @@ export class LoginService {
   
   async login(user:string, pass:string) {
     return new Promise((resolve, reject) => {
-      var codified:string=btoa(pass);
+      var codified:string=btoa(user+":"+pass);
       let config = {
         headers: {
-          Authorization: user+":"+codified,
+          Authorization: "Basic "+codified,
         }
       }
       axios.post(this._configuration.backEndUrl + this._configuration.postLogin,"",config)
         .then(response => { resolve(response.status) })
         .catch(error => { 
-          console.log(error); 
-          reject(error.response.status);
+          console.log(error);
+          reject(error);
         })
     })
   }

@@ -34,13 +34,7 @@ export class LoginComponent implements OnInit {
         duration: 3000,
       }); 
     }).catch(response=>{
-      console.log(response)
-      if(response==401){
-        this.snackbarMessage="Unauthorized Loggin"
-      }else{
-        this.snackbarMessage="Ups something went wrong"
-      }
-      this._snackBar.open(this.snackbarMessage, "ERROR", {
+      this._snackBar.open(response, "", {
         duration: 3000,
       }); 
     });
