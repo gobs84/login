@@ -1,5 +1,5 @@
 {
-    "backEndUrl" : "http://localhost:3000",
+    "backEndUrl" : "http://localhost:7050",
     "postLogin": "/crm-api/login",
-    "productsUrl": "http://localhost:8092"
+    "productsUrl": "http://localhost:7050/products"
 }
