@@ -15,6 +15,7 @@ export class LoginService {
   async login(user:string, pass:string) {
     return new Promise((resolve, reject) => {
       var codified:string=btoa(user+":"+pass);
+      console.log(codified);
       let config = {
         headers: {
           Authorization: "Basic "+codified,

@@ -17,6 +17,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem("token")!=null){
+      this._snackBar.open("Usted ya inicio sesion", "", {
+        duration: 3000,
+      });
+      window.location.href = this._configuration.productsUrl;
+    }
   }
 
   username: string;
